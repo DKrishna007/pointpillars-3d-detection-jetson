@@ -1,0 +1,56 @@
+{
+    "experiment": "PointPillars 3D Object Detection - Jetson AGX Orin",
+    "model": {
+          "name": "PointPillars",
+          "backbone": "VoxelNet-based pillar feature net",
+          "precision": "TensorRT FP16",
+          "dataset": "Custom indoor LiDAR dataset"
+    },
+    "inference_performance": {
+          "hardware": "NVIDIA Jetson AGX Orin",
+          "fps": 42.0,
+          "latency_ms": 23.8,
+          "max_latency_ms": 24.0,
+          "gpu_utilization_pct": 78.3,
+          "memory_usage_mb": 1842
+    },
+    "speedup": {
+          "baseline_pytorch_fp32_fps": 11.2,
+          "tensorrt_fp16_fps": 42.0,
+          "speedup_factor": 3.75,
+          "stated_speedup": 3.8
+    },
+    "3d_detection_accuracy": {
+          "classes": ["person", "chair", "table", "door", "obstacle"],
+          "mAP_3d": 0.743,
+          "mAP_bev": 0.812,
+          "iou_threshold": 0.5
+    },
+    "bytetrack_3d_mot": {
+          "mota": 0.784,
+          "motp": 0.687,
+          "idf1": 0.821,
+          "num_switches": 23,
+          "num_fragmentations": 31,
+          "fps": 38.5
+    },
+    "point_cloud_stats": {
+          "input_points_per_frame": 32768,
+          "voxel_size": [0.16, 0.16, 4.0],
+          "detection_range_m": 50.0,
+          "max_pillars": 12000
+    },
+    "dataset": {
+          "training_frames": 8500,
+          "validation_frames": 1500,
+          "classes": 5,
+          "avg_objects_per_frame": 4.7,
+          "lidar_sensor": "Velodyne HDL-32E"
+    },
+    "metadata": {
+          "date": "2026-05-18",
+          "tensorrt_version": "8.6.1",
+          "cuda_version": "11.4",
+          "jetpack_version": "5.1.2"
+    }
+}
